@@ -1,0 +1,115 @@
+@import url("https://fonts.googleapis.com/css2?family=Anta&display=swap");
+* {
+	box-sizing: border-box;
+	-webkit-font-smoothing: antialiased;
+	text-rendering: optimizeLegibility;
+	scroll-behavior: smooth;
+}
+html,
+body {
+	height: 100%;
+	overflow: hidden;
+}
+
+body {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	font-family: "Anta", sans-serif;
+	background: #cbe0df;
+	margin: 0;
+}
+
+.layer {
+	display: flex;
+	position: relative;
+	height: 100%;
+	--clr: #325f5d;
+}
+.layer span {
+	display: flex;
+	align-items: center;
+	font-size: clamp(5em, min(20vw, 40vh), 8em);
+	color: #000;
+	filter: drop-shadow(1px 1px 1px #0003) drop-shadow(2px 2px 3px #0006);
+	margin-right: -0.6em;
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	--sx: calc(var(--x-d));
+	--sy: calc(var(--y-d));
+	--scale: 0.2;
+
+	transition: all 0.4s ease-out;
+}
+.layer span::before {
+	display: block;
+	content: "";
+	height: 400%;
+	width: 100vw;
+	top: 0;
+	bottom: 0;
+	margin: auto;
+	right: 55%;
+	position: absolute;
+}
+.layer span:nth-child(1) {
+	z-index: 10;
+	color: lch(from var(--clr) l c h);
+}
+.layer span:nth-child(1):before {
+	background: lch(from var(--clr) l c h);
+}
+.layer span:nth-child(2) {
+	scale: 0.92;
+	z-index: 9;
+	color: lch(from var(--clr) calc(l + 10) c h);
+}
+.layer span:nth-child(2):before {
+	background: lch(from var(--clr) calc(l + 10) c h);
+}
+.layer span:nth-child(3) {
+	scale: 0.84;
+	z-index: 8;
+	color: lch(from var(--clr) calc(l + 20) c h);
+}
+.layer span:nth-child(3):before {
+	background: lch(from var(--clr) calc(l + 20) c h);
+}
+.layer span:nth-child(4) {
+	scale: 0.76;
+	z-index: 7;
+	color: lch(from var(--clr) calc(l + 30) c h);
+}
+.layer span:nth-child(4):before {
+	background: lch(from var(--clr) calc(l + 30) c h);
+}
+.layer span:nth-child(5) {
+	scale: 0.68;
+	z-index: 6;
+	color: lch(from var(--clr) calc(l + 40) c h);
+}
+.layer span:nth-child(5):before {
+	background: lch(from var(--clr) calc(l + 40) c h);
+}
+
+.layer span:nth-child(1) {
+	translate: calc(-2px * var(--scale) * var(--x-d))
+		calc(-2px * var(--scale) * var(--y-d));
+}
+.layer span:nth-child(2) {
+	translate: calc(-1px * var(--scale) * var(--x-d))
+		calc(-1px * var(--scale) * var(--y-d));
+}
+
+.layer span:nth-child(4) {
+	translate: calc(1px * var(--scale) * var(--x-d))
+		calc(1px * var(--scale) * var(--y-d));
+}
+.layer span:nth-child(5) {
+	translate: calc(2px * var(--scale) * var(--x-d))
+		calc(2px * var(--scale) * var(--y-d));
+}
